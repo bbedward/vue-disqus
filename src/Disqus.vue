@@ -39,7 +39,8 @@ export default {
         rootMargin: '300px',
         threshold: 0.5
       })
-    }
+    },
+    identifier: String
   },
 
   data: () => ({
@@ -133,7 +134,7 @@ export default {
     setPageConfig (disqusConfig) {
       const defaultConfig = {
         url: document.baseURI,
-        identifier: (this.$route.path || window.location.pathname)
+        identifier: (this.identifier || this.$route.path || window.location.pathname)
       }
 
       Object.assign(disqusConfig.page, defaultConfig)
